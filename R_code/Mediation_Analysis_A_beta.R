@@ -1,4 +1,5 @@
 #! /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/bin/Rscript
+##This Script can be called using Python script#RScript_Calling.py
 library(data.table)
 library(mediation)
 library(dplyr)
