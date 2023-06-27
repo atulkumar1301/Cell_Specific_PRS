@@ -22,7 +22,6 @@ PRS_7 <- fread ("p_value_5e-08.sscore") %>% merge(Full_File, by = 'IID')
 df <- Clinical_data [, -1:-19]
 for (p in colnames (df)) {
   i = 1
-  p = "CSF_ptau217"
   data2 <- PRS_1
   plot (density(data2[[p]]))
   data2$Normal <- RankNorm(data2[[p]])
@@ -276,6 +275,5 @@ for (p in colnames (df)) {
   
   TABLE$Bonferroni <- p.adjust(TABLE$P, method = "bonferroni", n = length(TABLE$P))
   TABLE$FDR <- p.adjust(TABLE$P, method = "fdr", n = length(TABLE$P))
-  #write.table (TABLE, file = paste0 ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217_PRS_Olink/PRS_Gene_Cell_Specificity/PRS/PRS_Results_CSF_pTau_217.txt"), sep="\t", quote=FALSE, row.names=FALSE, col.names=TRUE)
   write.table (TABLE, file = paste0 ("PRS_Result_",p,".txt"), sep="\t", quote=FALSE, row.names=FALSE, col.names=TRUE)
 }
