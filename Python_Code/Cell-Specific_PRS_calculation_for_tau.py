@@ -1,12 +1,7 @@
-#This code is pipe line for Cell-Specific PRS calculation for continous Variable
+#This code is a pipeline for Cell-Specific PRS calculation for continuous Variable
 import subprocess
 import os
-#Cell_Type = []
-#with open ("/Volumes/ATUL_6TB/Data/RNA_single_cell_type_data/Cells.txt", 'r') as cell_name:
-   # for cells in cell_name:
-       # Cell_Type.append (str.rstrip(cells))
 Cell_Type = ["Astrocytes", "Excitatory_neurons", "Inhibitory_neurons", "Microglial_cells", "Oligodendrocyte_precursor_cells", "Oligodendrocytes", "Original_PRS"]
-#Cell_Type = ["Oligodendrocyte_precursor_cells", "Oligodendrocytes", "Original_PRS"]
 plink2 = "/Volumes/ATUL_6TB/Tools/./plink2"
 plink = "/Volumes/ATUL_6TB/Tools/plink_mac_20221210/./plink"
 base_file = "/Volumes/ATUL_6TB/Data/Genetic_Data/BioFINDER_1/GRch38/BioFINDER-1_GWAS_Data_GRCh38"
@@ -25,8 +20,6 @@ with open ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217
         IDs_Split = IDs.split ("\t")
         Out_File.write (str (IDs_Split [0]) + "\t" + str (IDs_Split [1]) + "\n")
 print ("Id Extraction finished")
-
-#try:
 
 print ("Extracting GWAS data for Sample")
 subprocess.run ([plink2, "--pfile", base_file, "--keep", "Keep_Patient.txt", "--maf", "0.05", "--allow-extra-chr", "--make-bed", "--out", "9_QC_GWAS_data"], cwd = pwd)
@@ -278,5 +271,3 @@ for cell in Cell_Type:
             f_o = Non_APOE + "/p_value_" + str(i)
             subprocess.run ([plink2, "--pfile", "10_QC_GWAS_data", "--score", f_i, "--allow-extra-chr", "--out", f_o], cwd = path)
         R_code = subprocess.call (["/Volumes/ATUL_6TB/Tools/R_Codes/PRS_Linear.R", str(f_n)], cwd = Non_APOE)
-#except:
-    #print ("File missing")
