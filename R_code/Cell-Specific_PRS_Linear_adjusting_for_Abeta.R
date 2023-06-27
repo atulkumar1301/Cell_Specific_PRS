@@ -5,7 +5,7 @@ library(bdpv)
 library(data.table)
 library(dplyr)
 library(caret)
-library(Rcpp
+library(Rcpp)
 library(RNOmni)
 args <- commandArgs(trailingOnly = TRUE)
 TABLE<-as.data.frame(matrix(ncol=10, nrow=7)) 
