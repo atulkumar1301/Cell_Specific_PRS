@@ -10,8 +10,7 @@ library(RNOmni)
 args <- commandArgs(trailingOnly = TRUE)
 TABLE<-as.data.frame(matrix(ncol=10, nrow=7)) 
 names(TABLE)<-c("Model", "Effect", "SE", "R2", "L95", "U95", "AIC", "BIC", "Number_of_Variants", "P")
-#Clinical_data <- fread (file = paste0 ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217_adjusted_Abeta_PRS_Interaction/", args[1]))
-Clinical_data <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217_adjusted_Abeta_PRS_Interaction/Data_ptau_217.txt")
+Clinical_data <- fread (file = paste0 ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217_adjusted_Abeta_PRS_Interaction/", args[1]))
 Full_File <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217_adjusted_Abeta_PRS_Interaction/PCA_FILE.eigenvec") %>% merge(Clinical_data, by = 'IID')
 PRS_1 <- fread ("p_value_0.05.sscore") %>% merge(Full_File, by = 'IID')
 PRS_2 <- fread ("p_value_0.005.sscore") %>% merge(Full_File, by = 'IID')
@@ -276,6 +275,5 @@ for (p in colnames (df)) {
   
   TABLE$Bonferroni <- p.adjust(TABLE$P, method = "bonferroni", n = length(TABLE$P))
   TABLE$FDR <- p.adjust(TABLE$P, method = "fdr", n = length(TABLE$P))
-  #write.table (TABLE, file = paste0 ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217_PRS_Olink/PRS_Gene_Cell_Specificity/PRS/PRS_Results_CSF_pTau_217.txt"), sep="\t", quote=FALSE, row.names=FALSE, col.names=TRUE)
   write.table (TABLE, file = paste0 ("PRS_Result_",p,".txt"), sep="\t", quote=FALSE, row.names=FALSE, col.names=TRUE)
 }
