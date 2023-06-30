@@ -10,7 +10,6 @@ Full_File <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Dat
 prss <- list ("PRS_1", "PRS_2", "PRS_3", "PRS_4", "PRS_5", "PRS_6", "PRS_7")
 cells <- list ("Astrocytes", "Excitatory_neurons", "Inhibitory_neurons", "Microglial_cells", "Oligodendrocyte_precursor_cells", "Oligodendrocytes", "Original_PRS")
 for (j in cells){
-  #setwd (paste0 ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217/", j, "/Non_APOE/"))
   data2 <- fread (file = paste0 ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217/", j, "/Non_APOE/", args[1])) %>% merge(Full_File, by = 'IID')
   plot (density(data2$CSF_ptau217))
   data2$pTau_Normal <- RankNorm(data2$CSF_ptau217)
