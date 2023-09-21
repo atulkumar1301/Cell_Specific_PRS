@@ -107,7 +107,7 @@ for (p in colnames (df)) {
   
   modeldata20 <- glm (Full_File$PHENO ~ 1, family = binomial)
   model_PRS1 <- glm (Full_File$PHENO ~ PRS_1_A$NORMSCORE + PRS_1_EN$NORMSCORE + PRS_1_IN$NORMSCORE + PRS_1_M$NORMSCORE + PRS_1_OPC$NORMSCORE + PRS_1_O$NORMSCORE +
-                       Full_File$Age + Full_File$Gender + Full_File$PC1 + Full_File$PC2 + Full_File$PC3 + Full_File$PC4 + Full_File$PC5 + Full_File$PC6 + Full_File$PC7 + Full_File$PC8 + Full_File$PC9 + Full_File$PC10, family = binomial)
+                       Full_File$E2 + Full_File$E4 + Full_File$Age + Full_File$Gender + Full_File$PC1 + Full_File$PC2 + Full_File$PC3 + Full_File$PC4 + Full_File$PC5 + Full_File$PC6 + Full_File$PC7 + Full_File$PC8 + Full_File$PC9 + Full_File$PC10, family = binomial)
   
   
   l0 <- deviance (modeldata20)
@@ -200,7 +200,7 @@ for (p in colnames (df)) {
   
   modeldata20 <- glm (Full_File$PHENO ~ 1, family = binomial)
   model_PRS2 <- glm (Full_File$PHENO ~ PRS_2_A$NORMSCORE + PRS_2_EN$NORMSCORE + PRS_2_IN$NORMSCORE + PRS_2_M$NORMSCORE + PRS_2_OPC$NORMSCORE + PRS_2_O$NORMSCORE +
-                       Full_File$Age + Full_File$Gender + Full_File$PC1 + Full_File$PC2 + Full_File$PC3 + Full_File$PC4 + Full_File$PC5 + Full_File$PC6 + Full_File$PC7 + Full_File$PC8 + Full_File$PC9 + Full_File$PC10, family = binomial)
+                       Full_File$E2 + Full_File$E4 + Full_File$Age + Full_File$Gender + Full_File$PC1 + Full_File$PC2 + Full_File$PC3 + Full_File$PC4 + Full_File$PC5 + Full_File$PC6 + Full_File$PC7 + Full_File$PC8 + Full_File$PC9 + Full_File$PC10, family = binomial)
   
   
   l0 <- deviance (modeldata20)
@@ -293,7 +293,7 @@ for (p in colnames (df)) {
   
   modeldata20 <- glm (Full_File$PHENO ~ 1, family = binomial)
   model_PRS3 <- glm (Full_File$PHENO ~ PRS_3_A$NORMSCORE + PRS_3_EN$NORMSCORE + PRS_3_IN$NORMSCORE + PRS_3_M$NORMSCORE + PRS_3_OPC$NORMSCORE + PRS_3_O$NORMSCORE +
-                       Full_File$Age + Full_File$Gender + Full_File$PC1 + Full_File$PC2 + Full_File$PC3 + Full_File$PC4 + Full_File$PC5 + Full_File$PC6 + Full_File$PC7 + Full_File$PC8 + Full_File$PC9 + Full_File$PC10, family = binomial)
+                       Full_File$E2 + Full_File$E4 + Full_File$Age + Full_File$Gender + Full_File$PC1 + Full_File$PC2 + Full_File$PC3 + Full_File$PC4 + Full_File$PC5 + Full_File$PC6 + Full_File$PC7 + Full_File$PC8 + Full_File$PC9 + Full_File$PC10, family = binomial)
   
   
   l0 <- deviance (modeldata20)
@@ -386,7 +386,7 @@ for (p in colnames (df)) {
   
   modeldata20 <- glm (Full_File$PHENO ~ 1, family = binomial)
   model_PRS4 <- glm (Full_File$PHENO ~ PRS_4_A$NORMSCORE + PRS_4_EN$NORMSCORE + PRS_4_IN$NORMSCORE + PRS_4_M$NORMSCORE + PRS_4_OPC$NORMSCORE + PRS_4_O$NORMSCORE +
-                       Full_File$Age + Full_File$Gender + Full_File$PC1 + Full_File$PC2 + Full_File$PC3 + Full_File$PC4 + Full_File$PC5 + Full_File$PC6 + Full_File$PC7 + Full_File$PC8 + Full_File$PC9 + Full_File$PC10, family = binomial)
+                       Full_File$E2 + Full_File$E4 + Full_File$Age + Full_File$Gender + Full_File$PC1 + Full_File$PC2 + Full_File$PC3 + Full_File$PC4 + Full_File$PC5 + Full_File$PC6 + Full_File$PC7 + Full_File$PC8 + Full_File$PC9 + Full_File$PC10, family = binomial)
   
   
   l0 <- deviance (modeldata20)
@@ -479,7 +479,7 @@ for (p in colnames (df)) {
   
   modeldata20 <- glm (Full_File$PHENO ~ 1, family = binomial)
   model_PRS5 <- glm (Full_File$PHENO ~ PRS_5_A$NORMSCORE + PRS_5_EN$NORMSCORE + PRS_5_IN$NORMSCORE + PRS_5_M$NORMSCORE + PRS_5_OPC$NORMSCORE + PRS_5_O$NORMSCORE +
-                       Full_File$Age + Full_File$Gender + Full_File$PC1 + Full_File$PC2 + Full_File$PC3 + Full_File$PC4 + Full_File$PC5 + Full_File$PC6 + Full_File$PC7 + Full_File$PC8 + Full_File$PC9 + Full_File$PC10, family = binomial)
+                       Full_File$E2 + Full_File$E4 + Full_File$Age + Full_File$Gender + Full_File$PC1 + Full_File$PC2 + Full_File$PC3 + Full_File$PC4 + Full_File$PC5 + Full_File$PC6 + Full_File$PC7 + Full_File$PC8 + Full_File$PC9 + Full_File$PC10, family = binomial)
   
   
   l0 <- deviance (modeldata20)
@@ -572,7 +572,7 @@ for (p in colnames (df)) {
   
   modeldata20 <- glm (Full_File$PHENO ~ 1, family = binomial)
   model_PRS6 <- glm (Full_File$PHENO ~ PRS_6_A$NORMSCORE + PRS_6_EN$NORMSCORE + PRS_6_IN$NORMSCORE + PRS_6_M$NORMSCORE + PRS_6_OPC$NORMSCORE + PRS_6_O$NORMSCORE +
-                       Full_File$Age + Full_File$Gender + Full_File$PC1 + Full_File$PC2 + Full_File$PC3 + Full_File$PC4 + Full_File$PC5 + Full_File$PC6 + Full_File$PC7 + Full_File$PC8 + Full_File$PC9 + Full_File$PC10, family = binomial)
+                       Full_File$E2 + Full_File$E4 + Full_File$Age + Full_File$Gender + Full_File$PC1 + Full_File$PC2 + Full_File$PC3 + Full_File$PC4 + Full_File$PC5 + Full_File$PC6 + Full_File$PC7 + Full_File$PC8 + Full_File$PC9 + Full_File$PC10, family = binomial)
   
   
   l0 <- deviance (modeldata20)
@@ -665,7 +665,7 @@ for (p in colnames (df)) {
   
   modeldata20 <- glm (Full_File$PHENO ~ 1, family = binomial)
   model_PRS7 <- glm (Full_File$PHENO ~ PRS_7_A$NORMSCORE + PRS_7_EN$NORMSCORE + PRS_7_IN$NORMSCORE + PRS_7_M$NORMSCORE + PRS_7_OPC$NORMSCORE + PRS_7_O$NORMSCORE +
-                       Full_File$Age + Full_File$Gender + Full_File$PC1 + Full_File$PC2 + Full_File$PC3 + Full_File$PC4 + Full_File$PC5 + Full_File$PC6 + Full_File$PC7 + Full_File$PC8 + Full_File$PC9 + Full_File$PC10, family = binomial)
+                       Full_File$E2 + Full_File$E4 + Full_File$Age + Full_File$Gender + Full_File$PC1 + Full_File$PC2 + Full_File$PC3 + Full_File$PC4 + Full_File$PC5 + Full_File$PC6 + Full_File$PC7 + Full_File$PC8 + Full_File$PC9 + Full_File$PC10, family = binomial)
   
   
   l0 <- deviance (modeldata20)
