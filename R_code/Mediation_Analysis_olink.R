@@ -7,7 +7,7 @@ args <- commandArgs(trailingOnly = TRUE)
 Clinical_data <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217_PRS_Olink/PRS/Data_ptau_217.txt")
 Full_File <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217/PCA_FILE.eigenvec") %>% merge(Clinical_data, by = 'IID')
 prss <- list ("PRS_1", "PRS_2", "PRS_3", "PRS_4", "PRS_5", "PRS_6", "PRS_7")
-cells <- list ("Astrocytes", "Excitatory_neurons", "Inhibitory_neurons", "Microglial_cells", "Oligodendrocyte_precursor_cells", "Oligodendrocytes", "Original_PRS")
+cells <- list ("Astrocyte", "Excitatory_neuron", "Inhibitory_neuron", "Microglia", "OPC", "Oligodendrocyte", "Original")
 for (j in cells){
   data2 <- fread (file = paste0 ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217/", j, "/APOE/", args[1])) %>% merge(Full_File, by = 'IID')
   plot (density(data2$CSF_ptau217))
