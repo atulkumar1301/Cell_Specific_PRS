@@ -20,23 +20,23 @@ for (j in cells){
   data2$NORMSCORE<-(data2$SCORE1_AVG-m1)/sd1
   Total_Effect <-lm(PHENO ~ NORMSCORE + Age + Gender + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10, data=data2)
   
-  sink(paste0("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217_PRS_Olink/PRS/Mediation/APOE/Astrocytes/", args[2], "/", j, "/Total_Effect.txt"))
+  sink(paste0("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217_PRS_Olink/PRS/Mediation/APOE/", j, "/", args[2], "/Total_Effect.txt"))
   print(summary(Total_Effect))
   sink()
   
   Mediator_Effect <-lm(Total_Excitatory_Neuron ~ NORMSCORE + Age + Gender + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10, data=data2)
   
-  sink(paste0("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217_PRS_Olink/PRS/Mediation/APOE/Astrocytes/", args[2], "/", j, "/Mediator_Effect.txt"))
+  sink(paste0("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217_PRS_Olink/PRS/Mediation/APOE/", j, "/", args[2], "/Mediator_Effect.txt"))
   print(summary(Mediator_Effect))
   sink()
   
   Main_Effect <-lm(PHENO ~ NORMSCORE + Total_Excitatory_Neuron + Age + Gender + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10, data=data2)
-  sink(paste0("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217_PRS_Olink/PRS/Mediation/APOE/Astrocytes/", args[2], "/", j, "/Main_Effect.txt"))
+  sink(paste0("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217_PRS_Olink/PRS/Mediation/APOE/", j, "/", args[2], "/Main_Effect.txt"))
   print(summary(Main_Effect))
   sink()
   
   Mediation_Result <- mediate(Mediator_Effect, Main_Effect, treat='NORMSCORE', mediator='Total_Excitatory_Neuron', boot=T)
-  sink(paste0("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217_PRS_Olink/PRS/Mediation/APOE/Astrocytes/", args[2], "/", j, "/Mediation_Result.txt"))
+  sink(paste0("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/pTau217_PRS_Olink/PRS/Mediation/APOE/", j, "/", args[2], "/Mediation_Result.txt"))
   print(summary(Mediation_Result))
   sink()
 }
