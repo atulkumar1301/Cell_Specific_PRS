@@ -91,8 +91,8 @@ PRS_5 <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/Co
 PRS_5_1 <- as.matrix(PRS_5 [,-1])
 PRS_5_Mat <- cor(PRS_5_1)
 PRS_5_p <- ggcorrplot(PRS_5_Mat, outline.col = "white", lab = TRUE) + ggtitle ("E) PRS 5")
-PRS_4_p <- PRS_4_p + scale_x_discrete(labels = c ("Astrocytes", "Excitatory Neurons", "Inhibitory Neurons", "Microglia", "Oligodendrocyte Precursor Cells", "Oligodendrocytes"))
-PRS_4_p <- PRS_4_p + scale_y_discrete(labels = c ("Astrocytes", "Excitatory Neurons", "Inhibitory Neurons", "Microglia", "Oligodendrocyte Precursor Cells", "Oligodendrocytes"))
+PRS_5_p <- PRS_4_p + scale_x_discrete(labels = c ("Astrocytes", "Excitatory Neurons", "Inhibitory Neurons", "Microglia", "Oligodendrocyte Precursor Cells", "Oligodendrocytes"))
+PRS_5_p <- PRS_4_p + scale_y_discrete(labels = c ("Astrocytes", "Excitatory Neurons", "Inhibitory Neurons", "Microglia", "Oligodendrocyte Precursor Cells", "Oligodendrocytes"))
 PRS_5_p <- PRS_5_p + theme(
   plot.title = element_text(family = "serif", size=18, face = "bold"),
   #axis.title.x = element_text(family = "serif", size=16),
