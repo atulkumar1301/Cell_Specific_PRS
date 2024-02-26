@@ -15,7 +15,7 @@ p1 <- p1 + geom_hline (aes(yintercept=-log10(0.05), linetype = "p-value 0.05", c
   geom_hline (aes (yintercept=-log10(1.0E-03), linetype = "FDR p-value 0.05", col="#999999")) +
   scale_linetype_manual(name = "p-value cut off", values = c(2, 2), 
                         guide = guide_legend(override.aes = list(color = c("#999999", "#F0E442"))))
-p1 <- p1 + xlab ("PRS Models") + labs (color = "Cell_Type") + ylab (expression (-log[10]~(P))) + labs(title=expression("A) Including APOE region variants"))
+p1 <- p1 + xlab ("PRS Models") + labs (color = "Cell_Type") + ylab (expression (-log[10]~(P))) + labs(title=expression("A) Including APOE region variants"*beta))
 p1 <- p1 +
   theme(legend.position="right",
         plot.title = element_text(family = "serif", size=14, face = "bold", hjust = 0.5),
@@ -50,6 +50,7 @@ p2 <- p2 +
         legend.text = element_text(family = "serif", size=12),
         panel.background = element_blank())
 
+p <- ggarrange (p1, p2, ncol = 2, nrow = 1, common.legend = TRUE, legend = "bottom")
 #Including APOE Region
 df <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/Cell_Type_Heat_Map/pTau_217_Abeta_Adjusted_APOE.txt")
 melted_df <- melt (df)
@@ -65,7 +66,7 @@ ggheatmap <- ggheatmap +
     plot.title = element_text(family = "serif", size=14, face = "bold", hjust = 0.5),
     axis.title.x = element_text(family = "serif", size=12),
     axis.title.y = element_text(family = "serif", size=12),
-    axis.text.x = element_text(family = "serif", size=12),
+    axis.text.x = element_text(family = "serif", size=10, angle = 10),
     axis.text.y = element_text(family = "serif", size=12),
     legend.title = element_text(family = "serif", size=12),
     legend.text = element_text(family = "serif", size=12),
@@ -89,7 +90,7 @@ ggheatmap1 <- ggheatmap1 +
     plot.title = element_text(family = "serif", size=14, face = "bold", hjust = 0.5),
     axis.title.x = element_text(family = "serif", size=12),
     axis.title.y = element_text(family = "serif", size=12),
-    axis.text.x = element_text(family = "serif", size=12),
+    axis.text.x = element_text(family = "serif", size=10, angle = 10),
     axis.text.y = element_text(family = "serif", size=12),
     legend.title = element_text(family = "serif", size=12),
     legend.text = element_text(family = "serif", size=12),
@@ -98,7 +99,8 @@ ggheatmap1 <- ggheatmap1 +
     panel.background = element_blank(),
     axis.ticks = element_blank())
 
-ggarrange(ggheatmap, ggheatmap1, ncol = 2, nrow = 1)
-plot <- ggarrange (p1, p2, ggheatmap, ggheatmap1, ncol = 2, nrow = 2, common.legend = TRUE, legend = "bottom")
+heat <- ggarrange (ggheatmap, ggheatmap1, ncol = 2, nrow = 1, common.legend = TRUE, legend = "bottom")
 
-annotate_figure(plot, top = text_grob("Cell-Specific PRS association with CSF pTau217", color = "black", face = "bold", size = 16, family = "serif"))
+plot <- ggarrange (p, heat, ncol = 1, nrow = 2)
+
+annotate_figure(plot, top = text_grob("Cell-Specific PRS association with CSF pTau217 adjusted for A", color = "black", face = "bold", size = 16, family = "serif"))
