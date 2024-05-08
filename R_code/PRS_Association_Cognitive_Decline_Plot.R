@@ -10,7 +10,7 @@ p1 <- ggplot (data = df, aes (x = Model, y = -log10(P), col = Cell_Type, label =
   geom_point ()+ geom_text_repel(max.overlaps = Inf, show.legend  = F)
 p1 <- p1 + theme_bw() + scale_color_manual(values=cbbPalette)
 p1 <- p1 + scale_x_continuous (breaks=seq(1, 7, 1), labels=c("PRS 1", "PRS 2", "PRS 3", "PRS 4", "PRS 5", "PRS 6", "PRS 7"))
-p1 <- p1 + scale_y_continuous (breaks=seq(0, 3, 0.5))
+p1 <- p1 + scale_y_continuous (breaks=seq(0, 10, 1))
 p1 <- p1 + geom_hline (aes(yintercept=-log10(0.05), linetype = "p-value 0.05", col="#F0E442")) +
   geom_hline (aes (yintercept=-log10(1.0E-03), linetype = "Bonferroni p-value 0.05", col="#999999")) +
   scale_linetype_manual(name = "p-value cut off", values = c(2, 2), 
@@ -28,12 +28,12 @@ p1 <- p1 +
         panel.background = element_blank()) + labs(title=expression("A) Including APOE region variants"))
 
 #### Non-APOE region
-df_1 <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/Manuscript/PRS_Plots/PRS_Plot_APOE_MMSE.txt")
+df_1 <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/Manuscript/PRS_Plots/PRS_Plot_Non_APOE_MMSE.txt")
 p2 <- ggplot (data = df_1, aes (x = Model, y = -log10(P), col = Cell_Type, label = Effect)) + geom_path() +
   geom_point ()+ geom_text_repel(max.overlaps = Inf, show.legend  = F)
 p2 <- p2 + theme_bw() + scale_color_manual(values=cbbPalette)
 p2 <- p2 + scale_x_continuous (breaks=seq(1, 7, 1), labels=c("PRS 1", "PRS 2", "PRS 3", "PRS 4", "PRS 5", "PRS 6", "PRS 7"))
-p2 <- p2 + scale_y_continuous (breaks=seq(0, 3, 0.5))
+p2 <- p2 + scale_y_continuous (breaks=seq(0, 7, 0.5))
 p2 <- p2 + geom_hline (aes(yintercept=-log10(0.05), linetype = "p-value 0.05", col="#F0E442")) +
   geom_hline (aes (yintercept=-log10(1.0E-03), linetype = "Bonferroni p-value 0.05", col="#999999")) +
   scale_linetype_manual(name = "p-value cut off", values = c(2, 2), 
@@ -53,4 +53,4 @@ p2 <- p2 +
 
 plot <- ggarrange (p1, p2, ncol = 2, nrow = 1, common.legend = TRUE, legend = "bottom")
 
-annotate_figure(plot, top = text_grob("Cell-Specific PRS association with Cognitive Decline:MMSE", color = "black", face = "bold", size = 16, family = "serif"))
+annotate_figure(plot, top = text_grob("Cell-Specific PRS association with Cognitive Decline:MMSE-Baseline", color = "black", face = "bold", size = 16, family = "serif"))
