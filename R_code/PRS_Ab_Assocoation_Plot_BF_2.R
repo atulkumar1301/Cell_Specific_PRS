@@ -12,7 +12,7 @@ p1 <- p1 + theme_bw() + scale_color_manual(values=cbbPalette)
 p1 <- p1 + scale_x_continuous (breaks=seq(1, 7, 1), labels=c("PRS 1", "PRS 2", "PRS 3", "PRS 4", "PRS 5", "PRS 6", "PRS 7"))
 p1 <- p1 + scale_y_continuous (breaks=seq(0, 23, 1))
 p1 <- p1 + geom_hline (aes(yintercept=-log10(0.05), linetype = "p-value 0.05", col="#F0E442")) +
-  geom_hline (aes (yintercept=-log10(1.2E-03), linetype = "FDR p-value 0.05", col="#999999")) +
+  geom_hline (aes (yintercept=-log10(1.0E-03), linetype = "Bonferroni p-value 0.05", col="#999999")) +
   scale_linetype_manual(name = "p-value cut off", values = c(2, 2), 
                         guide = guide_legend(override.aes = list(color = c("#999999", "#F0E442"))))
 p1 <- p1 + xlab ("PRS Models") + labs (color = "Cell_Type") + ylab (expression (-log[10]~(P)))
@@ -35,7 +35,7 @@ p2 <- p2 + theme_bw() + scale_color_manual(values=cbbPalette)
 p2 <- p2 + scale_x_continuous (breaks=seq(1, 7, 1), labels=c("PRS 1", "PRS 2", "PRS 3", "PRS 4", "PRS 5", "PRS 6", "PRS 7"))
 p2 <- p2 + scale_y_continuous (breaks=seq(0, 16, 1))
 p2 <- p2 + geom_hline (aes(yintercept=-log10(0.05), linetype = "p-value 0.05", col="#F0E442")) +
-  geom_hline (aes (yintercept=-log10(9.9E-04), linetype = "FDR p-value 0.05", col="#999999")) +
+  geom_hline (aes (yintercept=-log10(1.0E-03), linetype = "Bonferroni p-value 0.05", col="#999999")) +
   scale_linetype_manual(name = "p-value cut off", values = c(2, 2), 
                         guide = guide_legend(override.aes = list(color = c("#999999", "#F0E442"))))
 p2 <- p2 + xlab ("PRS Models") + labs (color = "Cell_Type") + ylab (expression (-log[10]~(P)))
