@@ -7,7 +7,7 @@ args <- commandArgs(trailingOnly = TRUE)
 Clinical_data <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/BF_2/CSF_pTau217/Data.txt")
 Full_File <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/BF_2/CSF_pTau217/PCA_FILE.eigenvec") %>% merge(Clinical_data, by = 'IID')
 prss <- list ("PRS_1", "PRS_2", "PRS_3", "PRS_4", "PRS_5", "PRS_6", "PRS_7")
-cells <- list ("Astrocyte", "Excitatory_neuron", "Inhibitory_neuron", "Microglia", "Oligodendrocyte", "OPC", "Original")
+cells <- list ("Astrocytes", "Excitatory_neurons", "Inhibitory_neurons", "Microglial_cells", "Oligodendrocyte_precursor_cells", "Oligodendrocytes", "Original_PRS")
 #cells <- list ("Astrocyte")
 for (j in cells){
   data2 <- fread (file = paste0 ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/BF_2/CSF_pTau217/", j, "/APOE/", args[1])) %>% merge(Full_File, by = 'IID')
@@ -25,7 +25,7 @@ for (j in cells){
   print(summary(Total_Effect))
   sink()
   
-  Mediator_Effect <-lm(Total_Astrocyte ~ NORMSCORE + Age + Gender + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10, data=data2)
+  Mediator_Effect <-lm(Abnormal_CSF_Ab42_Ab40_Ratio ~ NORMSCORE + Age + Gender + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10, data=data2)
   
   sink(paste0("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/BF_2/Ab_Mediation/APOE/", j, "/", args[2], "/Mediator_Effect.txt"))
   print(summary(Mediator_Effect))
