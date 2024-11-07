@@ -6,8 +6,7 @@ library(ggpubr)
 #### APOE region
 cbbPalette <- c("#999999", "#F0E442", "#E69F00", "#009E73", "#CC79A7", "#0072B2", "#D55E00", "#56B4E9", "#000000")
 cbbPalette_1 <- c("#E69F00", "#009E73", "#CC79A7", "#0072B2", "#D55E00", "#56B4E9", "#000000")
-#df <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/Manuscript/PRS_Plots/PRS_Plot_APOE_CSF_pTau217.txt")
-df <- fread ("PRS_Plot_APOE_CSF_pTau217.txt")
+df <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/Manuscript/PRS_Plots/PRS_Plot_APOE_CSF_pTau217.txt")
 p1 <- ggplot (data = df, aes (x = Model, y = -log10(P), col = Cell_Type, label = Effect)) + geom_path() +
   geom_point ()+ geom_text_repel(max.overlaps = Inf, show.legend  = F)
 p1 <- p1 + theme_bw() + scale_color_manual(values=cbbPalette)
@@ -48,8 +47,7 @@ p3 <- p3 +
         panel.background = element_blank()) + labs(title=expression("c) Confidence Interval Plot: Including APOE region variants"))
 
 #### Non-APOE region
-#df_1 <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/Manuscript/PRS_Plots/PRS_Plot_Non_APOE_CSF_pTau217.txt")
-df_1 <- fread ("PRS_Plot_Non_APOE_CSF_pTau217.txt")
+df_1 <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/Manuscript/PRS_Plots/PRS_Plot_Non_APOE_CSF_pTau217.txt")
 p2 <- ggplot (data = df_1, aes (x = Model, y = -log10(P), col = Cell_Type, label = Effect)) + geom_path() +
   geom_point ()+ geom_text_repel(max.overlaps = Inf, show.legend  = F)
 p2 <- p2 + theme_bw() + scale_color_manual(values=cbbPalette)
