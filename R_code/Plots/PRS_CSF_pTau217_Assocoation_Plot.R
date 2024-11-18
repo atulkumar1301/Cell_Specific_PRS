@@ -29,8 +29,8 @@ p1 <- p1 +
         panel.background = element_blank()) + labs(title=expression("a) PRS Plot: Including APOE region variants"))
 
 p3 <- ggplot(df, aes(x = Model, y = Effect, col = Cell_Type)) +
-  geom_point(size = 4) +
-  geom_errorbar(aes(ymax = U95, ymin = L95, col = Cell_Type))
+  geom_point(position = position_dodge(0.7)) +
+  geom_errorbar(aes(ymax = U95, ymin = L95, col = Cell_Type), position = position_dodge(0.7), width = 0.2)
 p3 <- p3 + theme_bw() + scale_color_manual(values=cbbPalette_1)
 p3 <- p3 + scale_x_continuous (breaks=seq(1, 7, 1), labels=c("PRS 1", "PRS 2", "PRS 3", "PRS 4", "PRS 5", "PRS 6", "PRS 7"))
 p3 <- p3 + scale_y_continuous (breaks=seq(0, 1, 0.02))
@@ -70,8 +70,8 @@ p2 <- p2 +
         panel.background = element_blank()) + labs(title=expression("b) PRS Plot: Excluding APOE region variants"))
 
 p4 <- ggplot(df_1, aes(x = Model, y = Effect, col = Cell_Type)) +
-  geom_point(size = 4) +
-  geom_errorbar(aes(ymax = U95, ymin = L95, col = Cell_Type))
+  geom_point(position = position_dodge(0.7)) +
+  geom_errorbar(aes(ymax = U95, ymin = L95, col = Cell_Type), position = position_dodge(0.7), width = 0.2)
 p4 <- p4 + theme_bw() + scale_color_manual(values=cbbPalette_1)
 p4 <- p4 + scale_x_continuous (breaks=seq(1, 7, 1), labels=c("PRS 1", "PRS 2", "PRS 3", "PRS 4", "PRS 5", "PRS 6", "PRS 7"))
 p4 <- p4 + scale_y_continuous (breaks=seq(0, 1, 0.02))
