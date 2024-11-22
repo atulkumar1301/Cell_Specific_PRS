@@ -1,0 +1,11 @@
+library(data.table)
+df <- fread ("Full_Data.txt")
+
+range(df$NEW_BETA)
+mean(df$NEW_BETA)
+median(df$NEW_BETA)
+quantile(df$NEW_BETA, 0.25)
+quantile(df$NEW_BETA, 0.75)
+IQR(df$NEW_BETA)
+sd(df$NEW_BETA)
+var(df$NEW_BETA)
