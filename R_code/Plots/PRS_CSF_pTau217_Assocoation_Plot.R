@@ -10,7 +10,7 @@ cbbPalette <- c("#999999", "#F0E442", "#E69F00", "#009E73", "#CC79A7", "#0072B2"
 cbbPalette1 <- c("#E69F00", "#009E73", "#CC79A7", "#0072B2", "#D55E00", "#56B4E9", "#000000")
 
 #### APOE region
-df <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/Manuscript/PRS_Plots/PRS_Plot_APOE_CSF_pTau217.txt")
+df <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Work/Projects/Cell_Specific_PRSs/Full_Data/Manuscript/PRS_Plots/PRS_Plot_APOE_CSF_pTau217.txt")
 
 p1 <- ggplot (data = df, aes (x = Model, y = -log10(P), col = Cell_Type, label = Effect)) + geom_path() +
   geom_point ()+ geom_text_repel(max.overlaps = Inf, show.legend  = F)
@@ -31,7 +31,7 @@ p1 <- p1 +
         axis.text.y = element_text(family = "serif", size=12),
         legend.title = element_text(family = "serif", size=12),
         legend.text = element_text(family = "serif", size=12),
-        panel.background = element_blank()) + labs(title=expression("a) PRS Plot: Including APOE region variants"))
+        panel.background = element_blank()) + labs(title=expression("A) PRS Plot: Including APOE region variants"))
 
 df <- df %>% 
   mutate(category = reorder_within(Cell_Type, AIC, within = Model))
@@ -56,10 +56,10 @@ p3 <- p3 +
         axis.text.y = element_text(family = "serif", size=12),
         legend.title = element_text(family = "serif", size=12),
         legend.text = element_text(family = "serif", size=12),
-        panel.background = element_blank()) + labs(title=expression("c) Bar Plot (AIC): Including APOE region variants"))
+        panel.background = element_blank()) + labs(title=expression("C) Bar Plot (AIC): Including APOE region variants"))
 
 #### Non-APOE region
-df_1 <- fread ("/Volumes/ATUL_6TB/Work/Projects/Cell_Specific_PRSs/Full_Data/Manuscript/PRS_Plots/PRS_Plot_Non_APOE_CSF_pTau217.txt")
+df_1 <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Work/Projects/Cell_Specific_PRSs/Full_Data/Manuscript/PRS_Plots/PRS_Plot_Non_APOE_CSF_pTau217.txt")
 
 p2 <- ggplot (data = df_1, aes (x = Model, y = -log10(P), col = Cell_Type, label = Effect)) + geom_path() +
   geom_point ()+ geom_text_repel(max.overlaps = Inf, show.legend  = F)
@@ -80,7 +80,7 @@ p2 <- p2 +
         axis.text.y = element_text(family = "serif", size=12),
         legend.title = element_text(family = "serif", size=12),
         legend.text = element_text(family = "serif", size=12),
-        panel.background = element_blank()) + labs(title=expression("b) PRS Plot: Excluding APOE region variants"))
+        panel.background = element_blank()) + labs(title=expression("B) PRS Plot: Excluding APOE region variants"))
 p2
 
 df_1 <- df_1 %>% 
@@ -106,7 +106,7 @@ p4 <- p4 +
         axis.text.y = element_text(family = "serif", size=12),
         legend.title = element_text(family = "serif", size=12),
         legend.text = element_text(family = "serif", size=12),
-        panel.background = element_blank()) + labs(title=expression("d) Bar Plot (AIC): Excluding APOE region variants"))
+        panel.background = element_blank()) + labs(title=expression("D) Bar Plot (AIC): Excluding APOE region variants"))
 
 plot <- ggarrange (p1, p2, p3, p4, ncol = 2, nrow = 2, common.legend = TRUE, legend = "bottom")
 
